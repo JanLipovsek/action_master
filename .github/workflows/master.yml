@@ -18,8 +18,6 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         name: master_action_1
         conclusion: success
-        
-
   master_action_2:
     runs-on: ubuntu-latest
     steps:
