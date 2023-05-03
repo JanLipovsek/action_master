@@ -27,7 +27,6 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         name: master_action_2
         conclusion: failure
-        
   master_action_3:
     runs-on: ubuntu-latest
     steps:
