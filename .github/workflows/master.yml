@@ -52,7 +52,7 @@ jobs:
         - name: Repository Dispatch
           uses: peter-evans/repository-dispatch@v2
           with:
-            token: ${{ secrets.PAT }}
+            token: ${{ secrets.FGT }}
             repository: luxonis/remote_repo_check_slave
             event-type: master-event
             client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
