@@ -26,3 +26,6 @@ jobs:
 
       - name: Use the output run ID
         run: echo "https://github.com/JanLipovsek/action_slave/actions/runs/${{steps.return_dispatch.outputs.run_id}}"
+
+      - name: Adding markdown
+        run: echo "https://github.com/JanLipovsek/action_slave/actions/runs/${{steps.return_dispatch.outputs.run_id}}" >> $GITHUB_STEP_SUMMARY
