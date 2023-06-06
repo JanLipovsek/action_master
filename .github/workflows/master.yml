@@ -3,7 +3,7 @@
 
 name: Test action
 
-# Don't run this workflow concurrently 2
+# Don't run this workflow concurrently
 on:
   pull_request:
     branches: [ "main" ]
