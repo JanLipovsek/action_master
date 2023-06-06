@@ -25,4 +25,4 @@ jobs:
           workflow_timeout_seconds: 120 # Default: 300
 
       - name: Use the output run ID
-        run: echo "https://github.com/JanLipovsek/action_master/actions/runs/${{steps.return_dispatch.outputs.run_id}}"
+        run: echo "https://github.com/JanLipovsek/action_slave/actions/runs/${{steps.return_dispatch.outputs.run_id}}"
