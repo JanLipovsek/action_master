@@ -16,7 +16,7 @@ jobs:
           - name: Repository Dispatch
             uses: peter-evans/repository-dispatch@v2
             with:
-              token: ${{ secrets.TOKEN }}
+              token: ${{ secrets.FGT }}
               repository: JanLipovsek/action_slave
               event-type: ping_slave
               client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
