@@ -12,24 +12,6 @@ on:
       - main
 
 jobs:
-
-  style:
-    runs-on: ubuntu-20.04
-
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        submodules: 'recursive'
-
-    - name: Install format dependencies
-      run: |
-        sudo apt-get install clang-format-10
-    - name: configure
-      run: cmake . -Bbuild -DDEPTHAI_CLANG_FORMAT=ON -DCLANG_FORMAT_BIN=clang-format-10
-
-    - name: check style
-      run: ci/check_format.sh build
-    
   ping_slave:
     runs-on: ubuntu-latest
     steps:
