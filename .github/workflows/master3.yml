@@ -24,5 +24,6 @@ jobs:
             workflow-repo: 'action_slave'
             workflow-yaml: 'slave3.yml'
             workflow-branch: 'main'
+            workflow-inputs: '{"some_input": "${{ github.run_id }}"}'
             wait-timeout-in-minutes: '30'
             
