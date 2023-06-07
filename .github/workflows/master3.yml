@@ -1,4 +1,4 @@
-name: DepthAI Core CI/CD
+name: master3
 
 on:
   workflow_dispatch:
