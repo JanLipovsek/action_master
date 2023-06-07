@@ -1,0 +1,21 @@
+name: master4
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+    ping_slave:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Repository Dispatch
+            uses: peter-evans/repository-dispatch@v2
+            with:
+              token: ${{ secrets.TOKEN }}
+              repository: JanLipovsek/action_slave
+              event-type: ping_slave
+              client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
