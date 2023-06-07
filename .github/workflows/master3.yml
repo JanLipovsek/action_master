@@ -27,4 +27,4 @@ jobs:
         run: |
           echo "Conclusion: ${{ steps.downstream.outputs.conclusion }}"
           echo "Run ID: ${{ steps.downstream.outputs.run_id }}"
-          run: echo "https://github.com/JanLipovsek/action_slave/actions/runs/${{steps.downstream.outputs.run_id}}" >> $GITHUB_STEP_SUMMARY
+          echo "https://github.com/JanLipovsek/action_slave/actions/runs/${{steps.downstream.outputs.run_id}}" > $GITHUB_STEP_SUMMARY
