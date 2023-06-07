@@ -11,8 +11,7 @@ on:
 jobs:
     ping_slave:
         runs-on: ubuntu-latest
-        permissions:
-            pull-requests: write
+        permissions: write-all
         steps:
           - name: Repository Dispatch
             uses: peter-evans/repository-dispatch@v2
