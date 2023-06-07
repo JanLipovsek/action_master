@@ -19,7 +19,7 @@ jobs:
         uses: codex-/return-dispatch@v1
         id: return_dispatch
         with:
-          token: ${{ secrets.TOKEN }} # Note this is NOT GITHUB_TOKEN but a PAT asds
+          token: ${{ secrets.TOKEN }} # Note this is NOT GITHUB_TOKEN but a PAT asdssad
           ref: main # or refs/heads/target_branch
           repo: action_slave
           owner: JanLipovsek
