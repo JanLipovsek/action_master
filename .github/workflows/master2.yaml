@@ -30,5 +30,19 @@ jobs:
       - name: Use the output run ID
         run: echo "https://github.com/JanLipovsek/action_slave/actions/runs/${{steps.return_dispatch.outputs.run_id}}"
 
-      - name: Adding markdown
+  release:
+    runs-on: ubuntu-latest
+    steps:        
+      - name: Check slave
+        id: check-slave
+        uses: LASER-Yi/workflow-status@v0.0.2
+        with:
+          repo: JanLipovsek/action_slave
+          branch: main
+          token: ${{ secrets.TOKEN }}
+          workflow: slave2.yml
+          event: push
+          
+      - name: Release
+        if: ${{ steps.check-ci.outputs.conclusion == 'success' }}
         run: echo "https://github.com/JanLipovsek/action_slave/actions/runs/${{steps.return_dispatch.outputs.run_id}}" >> $GITHUB_STEP_SUMMARY
