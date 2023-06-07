@@ -1,0 +1,28 @@
+name: master3
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - main
+
+
+jobs:
+    test-env:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Run Remote Workflow
+          uses: anecdotes-ai/remote-workflow-control@latest
+          with:
+            github-auth-token: ${{ secrets.token }}
+            workflow-org: 'JanLipovsek'
+            workflow-repo: 'action_slave'
+            workflow-yaml: 'slave3.yml'
+            workflow-branch: 'main'
+            wait-timeout-in-minutes: '30'
+            
