@@ -19,7 +19,7 @@ jobs:
         uses: codex-/return-dispatch@v1
         id: return_dispatch
         with:
-          token: ${{ secrets.TOKEN }} # Note this is NOT GITHUB_TOKEN but a PAT
+          token: ${{ secrets.TOKEN }} # Note this is NOT GITHUB_TOKEN but a PAT asdssad
           ref: main # or refs/heads/target_branch
           repo: action_slave
           owner: JanLipovsek
@@ -30,5 +30,19 @@ jobs:
       - name: Use the output run ID
         run: echo "https://github.com/JanLipovsek/action_slave/actions/runs/${{steps.return_dispatch.outputs.run_id}}"
 
-      - name: Adding markdown
+  release:
+    runs-on: ubuntu-latest
+    steps:        
+      - name: Check slave
+        id: check-slave
+        uses: LASER-Yi/workflow-status@v0.0.2
+        with:
+          repo: JanLipovsek/action_slave
+          branch: main
+          token: ${{ secrets.TOKEN }}
+          workflow: slave2.yml
+          event: push
+          
+      - name: Release
+        if: ${{ steps.check-ci.outputs.conclusion == 'success' }}
         run: echo "https://github.com/JanLipovsek/action_slave/actions/runs/${{steps.return_dispatch.outputs.run_id}}" >> $GITHUB_STEP_SUMMARY
